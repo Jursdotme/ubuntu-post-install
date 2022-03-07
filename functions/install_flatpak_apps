@@ -29,7 +29,7 @@ function install_flatpak_apps {
 			'install_flatpak_gimp'      'GIMP' \
 			'install_flatpak_peek'      'Peek' \
 			'install_flatpak_peek'      'Riot' \
-			'install_flatpak_steam'     'Steam' \
+			'install_flatpak_toggl'     'Toggl' \
 			3>&1 1>&2 2>&3)
 
 		case "${FLATPAKS}" in
@@ -45,11 +45,12 @@ function install_flatpak_apps {
 				# install Riot chat
 				install_flathub_app "Riot" "im.riot.Riot"
 				;;
-			install_flatpak_steam)
+			install_flatpak_toggl)
 				# install Steam
-				install_flathub_app "Steam" "com.valvesoftware.Steam"
+				install_flathub_app "Toggl" "com.toggl.TogglDesktop"
+
 				;;
-			*) 
+			*)
 				# cancel
 				echo_message info "Returning..."
 				status=1

@@ -14,7 +14,7 @@ function install_snap_apps {
 			--ok-button "Install" \
 			--cancel-button "Go Back" \
 			$LINES $COLUMNS $(( $LINES - 12 )) \
-			'install_snap_atom'         'Atom' \
+			'install_snap_code'         'VS Code' \
 			'install_snap_inkscape'     'Inkscape' \
 			'install_snap_slack'        'Slack' \
 			'install_snap_spotify'      'Spotify' \
@@ -22,9 +22,9 @@ function install_snap_apps {
 			3>&1 1>&2 2>&3)
 
 		case "${SNAPS}" in
-			install_snap_atom)
-				# install Atom text editor
-				install_snap_package "Atom" "atom" install_snap_apps
+			install_snap_code)
+				# install VS Code text editor
+				install_snap_package "VS Code" "code" install_snap_apps
 				;;
 			install_snap_inkscape)
 				# install Inkscape
@@ -38,11 +38,7 @@ function install_snap_apps {
 				# install Spotify
 				install_snap_package "Spotify" "spotify" install_snap_apps
 				;;
-			install_snap_sublime)
-				# install Sublime Text
-				install_snap_package "Sublime Text 3" "sublime-text" install_snap_apps
-				;;
-			*) 
+			*)
 				# cancel
 				echo_message info "Returning..."
 				status=1
