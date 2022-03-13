@@ -32,6 +32,8 @@ function install_flatpak_apps {
 			'install_flatpak_riot'      'Riot' \
 			'install_flatpak_onlyoffice'      'OnlyOffice' \
 			'install_flatpak_toggl'     'Toggl' \
+			'install_flatpak_inkscape'     'Inkscape' \
+			'install_flatpak_spotify'     'Spotify' \
 			3>&1 1>&2 2>&3)
 
 		case "${FLATPAKS}" in
@@ -58,6 +60,15 @@ function install_flatpak_apps {
 			install_flatpak_toggl)
 				# install Steam
 				install_flathub_app "Toggl" "com.toggl.TogglDesktop"
+				;;
+			install_flatpak_inkscape)
+				# install Inkscape
+				install_flathub_app "Inkscape" "org.inkscape.Inkscape"
+				;;
+
+			install_flatpak_spotify)
+				# install spotify
+				install_flathub_app "Spotify" "com.spotify.Client"
 				;;
 			*)
 				# cancel

@@ -16,9 +16,7 @@ function install_snap_apps {
 			$LINES $COLUMNS $(( $LINES - 12 )) \
 			'install_snap_code'         'VS Code' \
 			'install_snap_trello'         'Trello Desktop' \
-			'install_snap_inkscape'     'Inkscape' \
 			'install_snap_slack'        'Slack' \
-			'install_snap_spotify'      'Spotify' \
 			3>&1 1>&2 2>&3)
 
 		case "${SNAPS}" in
@@ -29,10 +27,6 @@ function install_snap_apps {
 			install_snap_trello)
 				# install VS Code text editor
 				install_snap_package "Trello Desktop" "trello-desktop" install_snap_apps
-				;;
-			install_snap_inkscape)
-				# install Inkscape
-				install_snap_package "Inkscape" "inkscape" install_snap_apps
 				;;
 			install_snap_slack)
 				# install Slack
