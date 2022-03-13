@@ -15,16 +15,20 @@ function install_snap_apps {
 			--cancel-button "Go Back" \
 			$LINES $COLUMNS $(( $LINES - 12 )) \
 			'install_snap_code'         'VS Code' \
+			'install_snap_trello'         'Trello Desktop' \
 			'install_snap_inkscape'     'Inkscape' \
 			'install_snap_slack'        'Slack' \
 			'install_snap_spotify'      'Spotify' \
-			'install_snap_sublime'      'Sublime Text 3' \
 			3>&1 1>&2 2>&3)
 
 		case "${SNAPS}" in
 			install_snap_code)
 				# install VS Code text editor
 				install_snap_package "VS Code" "code" install_snap_apps
+				;;
+			install_snap_trello)
+				# install VS Code text editor
+				install_snap_package "Trello Desktop" "trello-desktop" install_snap_apps
 				;;
 			install_snap_inkscape)
 				# install Inkscape

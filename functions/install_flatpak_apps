@@ -27,8 +27,10 @@ function install_flatpak_apps {
 			--cancel-button "Go Back" \
 			$LINES $COLUMNS $(( $LINES - 12 )) \
 			'install_flatpak_gimp'      'GIMP' \
+			'install_flatpak_filezilla'      'FileZilla' \
 			'install_flatpak_peek'      'Peek' \
-			'install_flatpak_peek'      'Riot' \
+			'install_flatpak_riot'      'Riot' \
+			'install_flatpak_onlyoffice'      'OnlyOffice' \
 			'install_flatpak_toggl'     'Toggl' \
 			3>&1 1>&2 2>&3)
 
@@ -36,6 +38,10 @@ function install_flatpak_apps {
 			install_flatpak_gimp)
 				# install GIMP
 				install_flathub_app "GIMP" "org.gimp.GIMP"
+				;;
+			install_flatpak_filezilla)
+				# install GIMP
+				install_flathub_app "FileZilla" "org.filezillaproject.Filezilla"
 				;;
 			install_flatpak_peek)
 				# install Peek
@@ -45,10 +51,13 @@ function install_flatpak_apps {
 				# install Riot chat
 				install_flathub_app "Riot" "im.riot.Riot"
 				;;
+			install_flatpak_onlyoffice)
+				# install OnlyOffice
+				install_flathub_app "OnlyOffice" "org.onlyoffice.desktopeditors"
+				;;
 			install_flatpak_toggl)
 				# install Steam
 				install_flathub_app "Toggl" "com.toggl.TogglDesktop"
-
 				;;
 			*)
 				# cancel

@@ -84,6 +84,48 @@ function write_editorconfig {
 	fi
 }
 
+# Configure IMWheel by copying the 'imwheelrc.in' file to ~/.imwheelrc
+function write_imwheelrc {
+	# Check list
+	INPUT=$(dirname "$0")'/data/config/imwheelrc.in'
+	# Draw window
+	if (eval `resize` && whiptail \
+		--title "Configure IMWheel" \
+		--yesno "Custom config file contains the following: \n\n$(while read LINE; do echo "  "$LINE; done < $INPUT) \n\nOverwrite existing config?" \
+		$LINES $COLUMNS $(( $LINES - 12 )) \
+		--scrolltext) then
+		echo_message info "Overwriting ~/.imwheelrc..."
+		# simply copy the list file to the aliases file
+		cp $INPUT ~/.imwheelrc
+		echo_message success "IMWheel successfully configured."
+		whiptail --title "Finished" --msgbox "IMWheel successfully configured." 8 56
+		setup_dotfiles
+	else
+		setup_dotfiles
+	fi
+}
+
+# Autostart IMWHEEL by copying the 'imwheel.in' file to ~/.config/autostart/imwheel.desktop
+function write_imwheel {
+	# Check list
+	INPUT=$(dirname "$0")'/data/config/imwheel.in'
+	# Draw window
+	if (eval `resize` && whiptail \
+		--title "Set up IMWheel autostart" \
+		--yesno "Custom config file contains the following: \n\n$(while read LINE; do echo "  "$LINE; done < $INPUT) \n\nOverwrite existing config?" \
+		$LINES $COLUMNS $(( $LINES - 12 )) \
+		--scrolltext) then
+		echo_message info "Overwriting ~/.config/autostart/imwheel.desktop..."
+		# simply copy the list file to the aliases file
+		cp $INPUT ~/.config/autostart/imwheel.desktop
+		echo_message success "IMWheel successfully added to startup."
+		whiptail --title "Finished" --msgbox "IMWheel successfully added to startup configured." 8 56
+		setup_dotfiles
+	else
+		setup_dotfiles
+	fi
+}
+
 
 # Install custom dotfiles
 function setup_dotfiles {
@@ -100,6 +142,8 @@ function setup_dotfiles {
 		'write_bash_aliases'   'Set custom Bash aliases' \
 		'write_bashrc'         'Set custom Bash preferences' \
 		'write_editorconfig'   'Set custom editor config' \
+		'write_imwheelrc'   'Set imwheel config' \
+		'write_imwheel'   'Set imwheel autostart' \
 		3>&1 1>&2 2>&3)
 	# check exit status
 	if [ $? = 0 ]; then
