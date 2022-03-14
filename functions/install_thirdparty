@@ -32,6 +32,7 @@ function install_thirdparty {
 		$LINES $COLUMNS $(( $LINES - 12 )) \
 		'install_chrome'        'Google Chrome' \
 		'install_dropbox'       'Dropbox' \
+		'install_vlc' 'VLC' \
 		3>&1 1>&2 2>&3)
 
 	# check exit status
