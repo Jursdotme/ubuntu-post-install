@@ -34,6 +34,7 @@ function install_flatpak_apps {
 			'install_flatpak_toggl'     'Toggl' \
 			'install_flatpak_inkscape'     'Inkscape' \
 			'install_flatpak_spotify'     'Spotify' \
+			'install_flatpak_fondo'     'Fondo' \
 			3>&1 1>&2 2>&3)
 
 		case "${FLATPAKS}" in
@@ -69,6 +70,10 @@ function install_flatpak_apps {
 			install_flatpak_spotify)
 				# install spotify
 				install_flathub_app "Spotify" "com.spotify.Client"
+				;;
+			install_flatpak_fondo)
+				# install spotify
+				install_flathub_app "Fondo" "com.github.calo001.fondo"
 				;;
 			*)
 				# cancel
