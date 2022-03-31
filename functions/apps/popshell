@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# VLC
+function install_popshell {
+	# Variables
+	NAME="Pop Shell"
+	# Install
+	echo_message header 'Begin '$NAME' installation'
+		# Add repository
+		echo_message info 'Adding node-typescript repository to software sources...'
+		sudo apt install git node-typescript make
+		# Update repository information
+		echo_message info 'Cloning git repo'
+		git clone https://github.com/pop-os/shell.git
+		echo_message info "Build package and install"
+		# Install
+		cd shell
+		make local-install
+		echo_message success "Installation of '$NAME' complete."
+		# Done
+		whiptail --title "Finished" --msgbox "Installation of $NAME complete." 8 64
+}
