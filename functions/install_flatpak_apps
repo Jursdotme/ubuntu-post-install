@@ -34,7 +34,7 @@ function install_flatpak_apps {
 			'install_flatpak_toggl'     'Toggl' \
 			'install_flatpak_inkscape'     'Inkscape' \
 			'install_flatpak_spotify'     'Spotify' \
-			'install_flatpak_gnome_extension_manager' 'GNOME Extensions Manager' \
+			'install_flatpak_vlc' 'VLC' \
 			3>&1 1>&2 2>&3)
 
 		case "${FLATPAKS}" in
@@ -66,14 +66,14 @@ function install_flatpak_apps {
 				# install Inkscape
 				install_flathub_app "Inkscape" "org.inkscape.Inkscape"
 				;;
-
 			install_flatpak_spotify)
 				# install spotify
 				install_flathub_app "Spotify" "com.spotify.Client"
 				;;
-			install_flatpak_gnome_extension_manager)
+
+			install_flatpak_vlc)
 				# install spotify
-				install_flathub_app "GNOME Extensions Manager" "com.mattjakeman.ExtensionManager"
+				install_flathub_app "VLC" "org.videolan.VLC"
 				;;
 			*)
 				# cancel
